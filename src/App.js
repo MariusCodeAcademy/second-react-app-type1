@@ -1,12 +1,15 @@
 import './App.css';
+import IfElseComp from './components/IfElseComp';
 // import MyBtn from './components/MyBtn';
 
 function App() {
   const userIsLoggedIn = true;
-  const age = 30;
+  const age = 16;
+  const personAgeStatus = age >= 18 ? 'adult' : 'not-adult';
   return (
     <div>
       <h2>App</h2>
+      <IfElseComp adminStatus={false} />
       <div className='controll'>
         {/* {userIsLoggedIn ? <button>Go to About</button> : <button>Login</button>} */}
         {userIsLoggedIn && <button>Go to About</button>}
@@ -19,7 +22,7 @@ function App() {
       </article>
 
       <button className={age >= 18 ? 'btn-adult' : 'btn-teen'}>
-        Age {age >= 18 ? 'adult' : 'not-adult'}
+        Age {personAgeStatus}
       </button>
     </div>
   );
