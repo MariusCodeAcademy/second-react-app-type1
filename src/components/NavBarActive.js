@@ -18,3 +18,10 @@ const navData = [
     current: false,
   },
 ];
+
+// generate nav with 'nav-links' a els
+// if item has current status === true add class 'nav-active'
+
+// show active class different from other links
+
+// show '--' symbols before and after current active linke with react

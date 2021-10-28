@@ -1,6 +1,7 @@
 import './App.css';
 import IfElseComp from './components/IfElseComp';
 // import MyBtn from './components/MyBtn';
+import UserAdmin from './components/UserAdmin';
 
 function App() {
   const userIsLoggedIn = true;
@@ -9,6 +10,7 @@ function App() {
   return (
     <div>
       <h2>App</h2>
+      <UserAdmin />
       <IfElseComp adminStatus={false} />
       <div className='controll'>
         {/* {userIsLoggedIn ? <button>Go to About</button> : <button>Login</button>} */}
