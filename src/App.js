@@ -1,11 +1,14 @@
 import './App.css';
-import MyBtn from './components/MyBtn';
+// import MyBtn from './components/MyBtn';
 
 function App() {
+  const userIsLoggedIn = true;
   return (
     <div>
       <h2>App</h2>
-      <MyBtn></MyBtn>
+      <div className='controll'>
+        {userIsLoggedIn === true ? <button>Go to About</button> : ''}
+      </div>
     </div>
   );
 }
