@@ -1,6 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function Counter(props) {
+  // sio masyvo pirmo generavimo metu mes neturim jis atsiranda tik po fetch
+
+  const [colors, setColors] = useState([]);
+  const [randomIndex, setRandomIndex] = useState(0);
+  useEffect(() => {
+    setColors(['red', 'green', 'blue', 'violet', 'yellow', 'tomato']);
+    // console.log(colors.length);
+    // sugeneruot random sk is spalvu index
+    setRandomIndex(randomInteger(0, 6));
+  }, []);
+
+  console.log('randomIndex', randomIndex);
+  console.log('colors', colors);
+  const valueStyle = {
+    color: colors[randomIndex],
+  };
+
   const [counterValue, setCounterValue] = useState(0);
+
   const onIncrement = () => {
     console.log('onIncrement');
     setCounterValue(counterValue + 1);
@@ -15,6 +38,10 @@ function Counter(props) {
     if (counterValue < 0) {
       totalClasses += 'counter-negative ';
     }
+    if (counterValue > 0) {
+      totalClasses += 'counter-positive ';
+    }
+
     // prideti 'counter-positive' kai counteris didesnis uz 0
     return totalClasses;
   };
@@ -25,7 +52,9 @@ function Counter(props) {
         <span>Counter</span>
         {props.title}
       </h2>
-      <h3>{counterValue}</h3>
+      <h3 style={valueStyle} className='counter__value'>
+        {counterValue}
+      </h3>
       <button onClick={onIncrement}>Increase</button>
       <button onClick={onDecrement}>Decrease</button>
     </article>
