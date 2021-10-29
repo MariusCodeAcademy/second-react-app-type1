@@ -1,6 +1,7 @@
 import './App.css';
+import Counter from './components/Counter/Counter';
 
-import MyBtn from './components/MyBtn';
+// import MyBtn from './components/MyBtn';
 
 function App() {
   // state - to kompnento busenos duomenys
@@ -9,12 +10,7 @@ function App() {
   return (
     <div>
       <h2>App</h2>
-      <ul>
-        {myArr.map((c, idx) => (
-          <li key={idx}>{c}</li>
-        ))}
-      </ul>
-      <MyBtn />
+      <Counter />
     </div>
   );
 }
