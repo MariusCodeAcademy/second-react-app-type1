@@ -1,12 +1,12 @@
 import Counter from './Counter';
 
 function CounterList() {
+  const countersArr = ['London', 'Paris', 'New York'];
   return (
     <div className='counter-list'>
-      <Counter />
-      <Counter />
-      <Counter />
-      <Counter />
+      {countersArr.map((c) => (
+        <Counter key={c} title={c} />
+      ))}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-function Counter() {
-  const [counterValue, setCounterValue] = useState(10);
+function Counter(props) {
+  const [counterValue, setCounterValue] = useState(0);
   const onIncrement = () => {
     console.log('onIncrement');
     setCounterValue(counterValue + 1);
@@ -10,9 +10,21 @@ function Counter() {
     setCounterValue(counterValue - 1);
   };
 
+  const counterClasses = () => {
+    let totalClasses = 'counter-container ';
+    if (counterValue < 0) {
+      totalClasses += 'counter-negative ';
+    }
+    // prideti 'counter-positive' kai counteris didesnis uz 0
+    return totalClasses;
+  };
+
   return (
-    <article className='counter-container'>
-      <h2>Counter 1</h2>
+    <article className={counterClasses()}>
+      <h2 className='counter__title'>
+        <span>Counter</span>
+        {props.title}
+      </h2>
       <h3>{counterValue}</h3>
       <button onClick={onIncrement}>Increase</button>
       <button onClick={onDecrement}>Decrease</button>
