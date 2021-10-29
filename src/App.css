@@ -6,3 +6,18 @@
   font-size: 1rem;
   padding: 0.5rem;
 }
+
+/* Counter */
+.counter-container {
+  padding: 1rem;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 3px 4px 10px gray;
+  text-align: center;
+  display: inline-block;
+}
+
+.counter-list {
+  display: flex;
+  gap: 1em;
+}

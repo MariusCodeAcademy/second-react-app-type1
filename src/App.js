@@ -1,5 +1,5 @@
 import './App.css';
-import Counter from './components/Counter/Counter';
+import CounterList from './components/Counter/CounterList';
 
 // import MyBtn from './components/MyBtn';
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <h2>App</h2>
-      <Counter />
+      <CounterList />
     </div>
   );
 }
