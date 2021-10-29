@@ -9,20 +9,27 @@ function Counter(props) {
 
   const [colors, setColors] = useState([]);
   const [randomIndex, setRandomIndex] = useState(0);
+  const [counterValue, setCounterValue] = useState(0);
+
+  // vyksta viena karto po komponento sugeneravimo
   useEffect(() => {
     setColors(['red', 'green', 'blue', 'violet', 'yellow', 'tomato']);
     // console.log(colors.length);
     // sugeneruot random sk is spalvu index
-    setRandomIndex(randomInteger(0, 6));
   }, []);
 
-  console.log('randomIndex', randomIndex);
-  console.log('colors', colors);
+  // vygdyti kai pasikeicia colors arba counterValue
+  useEffect(() => {
+    console.log('colors changed');
+    console.log('colors length', colors.length);
+    setRandomIndex(randomInteger(0, colors.length));
+  }, [colors, counterValue]);
+
+  // console.log('randomIndex', randomIndex);
+  // console.log('colors', colors);
   const valueStyle = {
     color: colors[randomIndex],
   };
-
-  const [counterValue, setCounterValue] = useState(0);
 
   const onIncrement = () => {
     console.log('onIncrement');
